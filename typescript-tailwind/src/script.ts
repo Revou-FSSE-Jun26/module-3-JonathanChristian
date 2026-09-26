@@ -4,13 +4,14 @@ interface Cart { items: CartItem[]; totalItems: number; totalPrice: number; }
 type BadgeVariant = "success" | "warning" | "error";
 
 const products: Product[] = [
-  { id: 1, name: "Logitech Wireless Mouse",      price: 250000,   category: "Accessories", inStock: true  },
-  { id: 2, name: "Razer Mechanical Keyboard", price: 500000,   category: "Accessories", inStock: false },
-  { id: 3, name: "ASUS ROG Zephyrus G14",       price: 35000000, category: "Computers",   inStock: true  },
-  { id: 4, name: "Nothing Phone Fold (a)",       price: 25000000, category: "Smartphones",   inStock: true  },
-  { id: 5, name: "ASUS ROG SWIFT Monitor",       price: 18000000, category: "Accessories",   inStock: true  },
-  { id: 6, name: "iPhone Duo",       price: 55000000, category: "Smartphones",   inStock: true  }
+  { id: 1, name: "Logitech Wireless Mouse", price: 250000, category: "Accessories", inStock: true},
+  { id: 2, name: "Razer Mechanical Keyboard", price: 750000, category: "Accessories", inStock: false},
+  { id: 3, name: "ASUS ROG Zephyrus G14", price: 35000000, category: "Computers", inStock: true},
+  { id: 4, name: "Nothing Phone Fold (a)", price: 25000000, category: "Smartphones", inStock: true},
+  { id: 5, name: "ASUS ROG SWIFT Monitor", price: 18000000, category: "Accessories", inStock: true},
+  { id: 6, name: "iPhone Duo", price: 55000000, category: "Smartphones", inStock: true}
 ];
+
 let cartItems: CartItem[] = [];
 
 function getBadgeClasses(variant: BadgeVariant): string {
@@ -41,9 +42,9 @@ function renderProducts(list: Product[]) {
     <article class="${getCardClasses(p.inStock)}">
         <span class="${getBadgeClasses(p.inStock ? 'success' : 'error')}">${p.inStock ? 'In Stock' : 'Sold Out'}</span>
         <h3 class="text-lg font-bold text-gray-900 truncate mt-2">${p.name}</h3>
-        <p class="text-xl font-bold text-blue-600 mt-1">${formatRupiah(p.price)}</p>
+        <p class="text-xl font-bold text-[#4c936d] mt-1">${formatRupiah(p.price)}</p>
         <span class="text-sm text-gray-500">${p.category}</span>
-        <button data-id="${p.id}" ${p.inStock ? "" : "disabled"} class="add-btn w-full mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50">
+        <button data-id="${p.id}" ${p.inStock ? "" : "disabled"} class="add-btn w-full mt-3 bg-[#4c936d] text-white px-4 py-2 rounded-xl hover:bg-green-700 disabled:opacity-50">
             Add to Cart
         </button>
     </article>`).join("");
