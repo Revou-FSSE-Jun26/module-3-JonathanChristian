@@ -13,6 +13,7 @@ const products: Product[] = [
 ];
 
 let cartItems: CartItem[] = [];
+let cartData: Cart = { items: cartItems, totalItems: 0, totalPrice: 0 };
 
 function getBadgeClasses(variant: BadgeVariant): string {
   const base = "text-xs font-semibold px-2 py-1 rounded-full";
@@ -85,6 +86,14 @@ function addToCart(id: number) {
     cartItems.push({ product, quantity: 1 });
   }
   updateInStock(product);
+
+  cartData = {
+    items: cartItems,
+    totalItems: cartItems.reduce((s, ci) => s + ci.quantity, 0),
+    totalPrice: cartItems.reduce((s, ci) => s + ci.product.price * ci.quantity, 0)
+  };
+  console.log(cartData);
+
   renderProducts(products);
   renderCart();
 }
