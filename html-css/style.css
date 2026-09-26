@@ -45,12 +45,19 @@ main {
     padding: 20px;
 }
 
+footer {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #90ee90, #add8e6);
+    color: #000000;
+    text-align: center;
+    font-size: 14px;
+}
+
 section {
     margin-bottom: 32px;
     text-align: center;
 }
 
-/* Center each section's block content horizontally */
 #about,
 #projects,
 #contacts {
@@ -59,7 +66,6 @@ section {
     align-items: center;
 }
 
-/* Constrain About width to match the contact form width */
 #about p {
     max-width: 400px;
     font-size: 16px;
@@ -71,9 +77,9 @@ h2 {
 }
 
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
     gap: 16px;
 }
 
@@ -160,8 +166,18 @@ button:hover {
         padding: 40px 60px;
     }
 
+    footer {
+        padding: 16px 40px;
+        font-size: 18px;
+    }
+
     h2 {
         font-size: 30px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
     }
 
     #card {
